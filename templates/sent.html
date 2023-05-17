@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SENT EMAIL PAGE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("{{url_for('static',filename='images/bg-01.jpg')}}");
+            overflow-x: hidden; 
+        }
+
+        button {
+            /* background-image: url("{{url_for('static',filename='images/bg-01.jpg')}}"); */
+            position: relative;
+            top: 100px;
+            left: 45px;
+        }
+
+        h1 {
+            font-size: 36px;
+            position: relative;
+            top: -90px;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: 30px;
+            text-decoration: underline;
+            position: relative;
+            top: -55px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="/sent" method="post">
+        <button type="submit">
+            <div class="container">
+                <h1>Voice Based Email System For Visually Challenged</h1>
+                <h2>Sent Email</h2>
+                {% for i in range(num) %}
+                <table class="table">
+                    
+                    <thead>
+                        <tr>
+                            <th >Email Id</th>
+                            <td>{{receiveremail[i]}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th >Subject</th>
+                            <td>{{subject[i]}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th>Message</th>
+                            <td>{{message[i]}}</td> 
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th>Filename</th>
+                            <td>{{filename[i]}}</td> 
+                        </tr>
+                    </tbody>
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    
+                </table>
+                {% endfor %}
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+            </div>
+        </button>
+    </form>
+</body>
+
+</html>
